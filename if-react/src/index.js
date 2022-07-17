@@ -6,18 +6,30 @@ import reportWebVitals from './reportWebVitals';
 
 import Library from './chapter_03/Library';
 import Clock from './chapter_04/Clock';
+import CommentList from './chapter_05/CommentList';
+import NotificationList from './chapter_06/NotificationList';
 
 // 만든 파일을 실제로 랜더링 하려면 index.js 파일을 수정해야됨 
 
-setInterval(()=> { 
-  ReactDOM.render(
-    <React.StrictMode>
-      <Clock/>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-},1000); //1초마다 갱신 
+//chapter_05
+ReactDOM.render(
+  <React.StrictMode>
+    <NotificationList/>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
+// chapter_04
+// setInterval(()=> { 
+//   ReactDOM.render(
+//     <React.StrictMode>
+//       <Clock/>
+//     </React.StrictMode>,
+//     document.getElementById('root')
+//   );
+// },1000); //1초마다 갱신 
+
+// chapter_03
 // ReactDOM.render(
 //   <React.StrictMode>
 //     <Library/>

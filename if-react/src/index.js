@@ -8,13 +8,14 @@ import Library from './chapter_03/Library';
 import Clock from './chapter_04/Clock';
 import CommentList from './chapter_05/CommentList';
 import NotificationList from './chapter_06/NotificationList';
+import Accommodate from './chapter_07/Accommodate'
 
 // 만든 파일을 실제로 랜더링 하려면 index.js 파일을 수정해야됨 
 
 //chapter_05
 ReactDOM.render(
   <React.StrictMode>
-    <NotificationList/>
+    <Accommodate/>
   </React.StrictMode>,
   document.getElementById('root')
 );

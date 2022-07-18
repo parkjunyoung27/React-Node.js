@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ConfirmButton(props){
+function ConfirmButton(){
     const [isConfirmed, setIsConfirmed] = useState(false);
 
     const handleConfirm = () => {

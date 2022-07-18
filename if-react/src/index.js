@@ -10,13 +10,14 @@ import CommentList from './chapter_05/CommentList';
 import NotificationList from './chapter_06/NotificationList';
 import Accommodate from './chapter_07/Accommodate';
 import ConfirmButton from './chapter_08/ConfirmButton';
+import LandingPage from './chapter_09/LandingPage';
 
 // 만든 파일을 실제로 랜더링 하려면 index.js 파일을 수정해야됨 
 
 //chapter_05
 ReactDOM.render(
   <React.StrictMode>
-    <ConfirmButton/>
+    <LandingPage/>
   </React.StrictMode>,
   document.getElementById('root')
 );

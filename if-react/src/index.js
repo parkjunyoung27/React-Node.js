@@ -13,13 +13,15 @@ import ConfirmButton from './chapter_08/ConfirmButton';
 import LandingPage from './chapter_09/LandingPage';
 import AttendanceBook from './chapter_10/AttendanceBook';
 import SignUp from './chapter_11/SignUp';
+import Calculator from './chapter_12/Caculator';
+import ProfileCard from './chapter_13/ProfileCard'
 
 // 만든 파일을 실제로 랜더링 하려면 index.js 파일을 수정해야됨 
 
 //chapter_05
 ReactDOM.render(
   <React.StrictMode>
-    <SignUp/>
+    <ProfileCard/>    
   </React.StrictMode>,
   document.getElementById('root')
 );

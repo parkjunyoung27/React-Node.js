@@ -33,7 +33,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// 먼저 관련된 경로를 연결시켜주는 곳  
 app.use('/api/users', require('./routes/users'));
+app.use('/api/video', require('./routes/video'));
+
 
 
 //use this to show the image you have in node js server to client (react js)

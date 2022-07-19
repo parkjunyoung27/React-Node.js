@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PostListItem from "./PostLIstItem";
+import PostListItem from "./PostListItem";
 
 const Wrapper = styled.div`
     display: flex;
@@ -29,7 +29,7 @@ function PostList(props){
                             onClickItem(post);
                         }}
                     />
-                )
+                );
             })}
         </Wrapper>
     );

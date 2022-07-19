@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CommentListItem from "./CommentListItem";
 
 const Wrapper = styled.div`
-    display: flex;
+    display: block;
     flex-direction: columnl;
     align-items: flex-start;
     justify-content: center;

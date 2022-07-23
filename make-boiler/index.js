@@ -13,11 +13,8 @@ app.use(bodyParser.json());
 const { User } = require("./models/User");
 const mongoose = require('mongoose')
 
-<<<<<<< HEAD
 mongoose.connect(config.mongoURI)
-=======
-mongoose.connect('DB주소')
->>>>>>> 9cb0fe997a8aef0e8167357a1dde54db35a31da2
+
  .then(()=> console.log('MongDB Connected...')) //연결이 잘 되면
  .catch(err => console.log(err)); //오류나면 잡는용도
 

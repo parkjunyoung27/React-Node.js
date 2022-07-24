@@ -22,20 +22,15 @@ mongoose.connect(config.mongoURI)
 app.get('/', (req, res) => res.send('Hello World ~ 안녕하세요'))  // Hello World 
 
 //postman 에서 확인하기 
-app.post('/register',(req, res)=>{
+app.post('/register',(req, res) => { 
         //회원 가입 할때 필요한 정보들을 client에서 가져오면 
         //그것들을 데이터베이스에 넣어준다. 
-        
-        /*   {
-                id:"hello",
-                password:"123"
-              }*/
-
-
         const user = new User(req.body)//정보들을 넣기위해서 req.body 
+        //아래 save 하기전에 비밀번호 암호화하기 
+
         //위에 처럼 들어와서 넣어줄수있는게 body.parser때문
-        user.save((err, userInfo)=> {
-                if(err) return res.json({success: false, err})
+        user.save((err, userInfo) => {
+                if (err) return res.json({ success: false, err })
                 return res.status(200).json({
                         success: true
                 })
@@ -43,6 +38,35 @@ app.post('/register',(req, res)=>{
 
 })
 
- 
+app.posd('/login', (req,res) => {
+
+    // 요청된 이메일을 데이터베이스에서 있는지 찾는다. 
+    User.findOne({ email: req.body.email }, (err, userInfo) => {
+        if(!userInfo){
+            return res.json({
+                loginSuccess: false,
+                message: "제공된 이메일에 해당하는 유저가 없습니다."
+            })
+        }
+        // 이메일이 있다면 비밀번호가 같은지 확인
+
+        user.comparePassword(req.body.password, (err, isMatch) => {
+            if(!isMatch)
+            return res.json({ loginSuccess: false, message: "비밀번호가 틀렸습니다."
+        
+            // 비밀번호까지 같다면 Token 생성
+        //     user.generateToken((err, user) => {
+
+        //     })
+
+    })
+
+
+
+    
+
+}) 
+
+
 // 출력
 app.listen(port, console.log(`Example app listening on port ${port}!`))

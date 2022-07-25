@@ -1,6 +1,5 @@
 const express = require('express') // 1.express 모듈 가져오기 
 const app = express() // 2.새로운 express앱 만들기
-const port = 5000 // 3.포트 빽서버 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const config = require('./config/key');
@@ -37,13 +36,13 @@ app.post('/api/users/register',(req, res) => {
                 if (err) return res.json({ success: false, err })
                 return res.status(200).json({
                         success: true
-                })
+                    })
         })
 
 })
 
 app.post('/api/users/login', (req,res) => {
-
+    
     // 요청된 이메일을 데이터베이스에서 있는지 찾는다. 
     User.findOne({ email: req.body.email }, (err, user) => {
         if(!user){
@@ -66,7 +65,7 @@ app.post('/api/users/login', (req,res) => {
                 res.cookie("x_auth", user.token)
                 .status(200)
                 .json({loginSuccess: true, userId: user._id})
-             })
+            })
         })
     })
 }) 
@@ -90,7 +89,7 @@ app.get('/api/users/auth', auth ,(req,res) => {
 })
 
 app.get('/api/users/logout', auth, (req,res) => {
-        //유저를 찾아서 업데이트 해준다.
+    //유저를 찾아서 업데이트 해준다.
         User.findOneAndUpdate({ _id: req.user._id},
         {token: ""}
         ,(err, user) => {
@@ -101,8 +100,10 @@ app.get('/api/users/logout', auth, (req,res) => {
         })
 })
 
-
-
+const port = 5000; // 3.포트 빽서버 
 
 // 출력
 app.listen(port, console.log(`Example app listening on port ${port}!`));
+
+
+app.get('/api/hello', (req,res) => {res.send("안녕하세요 ~ ")})

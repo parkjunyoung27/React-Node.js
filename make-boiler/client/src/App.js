@@ -16,9 +16,9 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route exact path="/" element={Auth(<LandingPage/>, null)}/>
-          <Route exact path="/login" element={Auth(<LoginPage/>,false)}/>
-          <Route exact path="/register" element={Auth(<RegisterPage/>,false)}/>
+          <Route exact path="/" element={<LandingPage/>}/>
+          <Route exact path="/login" element={<LoginPage/>}/>
+          <Route exact path="/register" element={<RegisterPage/>}/>
         </Routes>
     </Router>
   );

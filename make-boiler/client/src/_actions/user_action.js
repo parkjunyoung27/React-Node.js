@@ -23,7 +23,7 @@ export function registerUser(dataToSubmit) {
         .then(response => response.data)
 
     return {
-        type: REGISTER_USER,
+        type: AUTH_USER,
         payload: request
     }
 }

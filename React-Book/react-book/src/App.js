@@ -3,10 +3,15 @@ import Counter from './Counter';
 import Say from './say';
 import EventPractice from './EventPractice';
 import IterationSample from './IterationSample';
+import ValidationSample from './ValidationSample';
+import { Component } from 'react';
 
-function App() {
-  // return <MyComponent name="박준영"/>;
-  return <IterationSample/>;
-};
+class App extends Component{
+  render(){
+    return(
+      <ValidationSample/>
+    );
+  }
+}
 
 export default App;

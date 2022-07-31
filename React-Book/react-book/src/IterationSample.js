@@ -2,40 +2,44 @@ import { useState } from 'react';
 
 const IterationSample = () => {
 
-    const [names, setNames] = useState([ //names 안에 id와 text
-        { id: 1, text: '눈사람'},
-        { id: 2, text: '얼음'},
-        { id: 3, text: '비'},
-        { id: 4, text: '바람'},
-    ]);
+    const [names, setNames] = useState([
+        {id:1, text: '눈사람'},
+        {id:2, text: '얼음'},
+        {id:3, text: '눈'},
+        {id:4, text: '바람'},
+    ])
 
     const [inputText, setInputText] = useState('');
-    const [nextId, setNextId] = useState(5); //새로운 항목을 추가할 때 사용할 id //5번째 
+    const [nextId, setNextId] = useState(5); //새로운 항목을 추가할 때 사용할 id
+    
+    const onChange = e => setInputText(e.target.value);
 
-    const onChange = e => setInputText(e.target.value); // 글자채워지는대로 세팅
-    const onClick = () => { //버튼 클릭시 
-        const nextNames = names.concat({ // id, text 생성
+    const onClick = () => {
+        const nextNames = names.concat({
             id : nextId,
-            text : inputText
+            text: inputText
         });
-        setNextId(nextId + 1 );
+        setNextId(nextId + 1);
         setNames(nextNames);
-        setInputText(''); // 입력 후 초기화 
-    };
+        setInputText('');
+    }
 
     const onRemove = id => {
         const nextNames = names.filter(name => name.id !== id);
         setNames(nextNames);
-    }
+    };
 
-    const namesList = names.map(name => 
-    <li key={name.id} onDoubleClick={()=>onRemove(name.id)}>{name.text}</li>)
+    const nameList = names.map(name => (
+        <li key={name.id} onDoubleClick={() => onRemove(name.id)}>
+            {name.text}
+        </li>
+    ));
 
     return(
         <>
             <input value={inputText} onChange={onChange}/>
             <button onClick={onClick}>추가</button>
-            <ul>{namesList}</ul> 
+            <ul>{nameList}</ul>
         </>
     ) 
 };

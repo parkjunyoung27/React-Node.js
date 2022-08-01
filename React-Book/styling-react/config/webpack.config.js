@@ -513,18 +513,21 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
-                  modules: {
-                    mode: 'icss',
-                  },
+                  }).concat({
+                    loader: require.resolve("sass-loader"),
+                    options:{
+                      sassOptions:{
+                        includePaths: [paths.appSrc + "/styles"],
+                      },
+                      additionalData: "@import 'utils';",
+                    },
+                  }),
+                  sideEffects: true,
                 },
-                'sass-loader'
-              ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
               // See https://github.com/webpack/webpack/issues/6571
-              sideEffects: true,
-            },
             // Adds support for CSS Modules, but using SASS
             // using the extension .module.scss or .module.sass
             {

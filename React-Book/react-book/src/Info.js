@@ -1,15 +1,16 @@
 import {useState, useEffect } from 'react';
 
 const Info = () => {
+
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
-    useEffect(()=> {
-        console.log('렌더링이 완료되었습니다!');
-        console.log({
-            name,
-            nickname
-        });
-    });
+
+    useEffect(()=> { // componentDidMount(랜덤 후 실행할 것)와 componentDidUpdate(업데이트할 것)를 합친 형태
+        console.log('effect');
+        return () => {
+            console.log('unmount');
+        };
+    },[]); // 이름이 바뀔때만  
 
     const onChangeName = e => {
         setName(e.target.value);
@@ -37,3 +38,5 @@ const Info = () => {
     )
 
 }
+
+export default Info;

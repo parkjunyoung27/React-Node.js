@@ -12,22 +12,25 @@ import LifeCycleSample from './LifeCycleSample';
 import ErrorBoundary from './ErrorBoundary';
 import { useState } from 'react'
 import Info from './Info'
+import Average from './Average';
 
 const App = () => {
 
-  const[visible, setVisible] = useState(false);
-  return(
-    <div>
-      <button onClick={()=> {
-        setVisible(!visible);
-      }}
-      >
-        {visible ? '숨기기' : '보이기'}
-      </button>
-      <hr />
-      {visible && <Info/>}
-    </div>
-  )
+  return <Average/>
+
+  // const[visible, setVisible] = useState(false);
+  // return(
+  //   <div>
+  //     <button onClick={()=> {
+  //       setVisible(!visible);
+  //     }}
+  //     >
+  //       {visible ? '숨기기' : '보이기'}
+  //     </button>
+  //     <hr />
+  //     {visible && <Info/>}
+  //   </div>
+  // )
 
 }
 

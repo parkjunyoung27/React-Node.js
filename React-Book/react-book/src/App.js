@@ -16,7 +16,7 @@ import Average from './Average';
 
 const App = () => {
 
-  return <Average/>
+  return <Info/>
 
   // const[visible, setVisible] = useState(false);
   // return(

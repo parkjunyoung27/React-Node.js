@@ -1,37 +1,7 @@
-import './App.css';
-import { Component } from 'react';
-//import Counter from './Counter';
-//import Say from './say';
-//import EventPractice from './EventPractice';
-//import IterationSample from './IterationSample';
-//import ValidationSample from './ValidationSample';
-//import ValidationSample from './ValidationSample';
-//import ScrollBox from './ScrollBox';
-//import IterationSample from './IterationSample';
-import LifeCycleSample from './LifeCycleSample';
-import ErrorBoundary from './ErrorBoundary';
-import { useState } from 'react'
-import Info from './Info'
-import Average from './Average';
+import TodoTemplate from './components/TodoTemplate';
 
 const App = () => {
-
-  return <Info/>
-
-  // const[visible, setVisible] = useState(false);
-  // return(
-  //   <div>
-  //     <button onClick={()=> {
-  //       setVisible(!visible);
-  //     }}
-  //     >
-  //       {visible ? '숨기기' : '보이기'}
-  //     </button>
-  //     <hr />
-  //     {visible && <Info/>}
-  //   </div>
-  // )
-
-}
+  return <TodoTemplate>Todo App을 만들자!</TodoTemplate>;
+};
 
 export default App;

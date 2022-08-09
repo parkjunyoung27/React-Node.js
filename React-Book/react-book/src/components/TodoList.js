@@ -1,12 +1,17 @@
 import TodoListItem from "./TodoListItem";
 import './TodoList.scss';
 
-const TodoList = () => {
+const TodoList = ({ todos, onRemove, onToggle }) => { //전달하는 props 부분
     return(
         <div className="TodoList">
-            <TodoListItem/>
-            <TodoListItem/>
-            <TodoListItem/>
+            {todos.map(todo => (
+                <TodoListItem 
+                    todo={todo} 
+                    key={todo.id} 
+                    onRemove={onRemove}
+                    onToggle={onToggle}    
+                />
+            ))}
         </div>
     );
 };

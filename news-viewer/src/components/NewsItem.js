@@ -34,7 +34,7 @@ const NewsItemBlock = styled.div`
 `;
 
 const NewsItem = ({ article }) => {
-    const { title, description, url, urlToImage } = article;
+    const { title, description, url, urlToImage, author } = article;
     return(
         <NewsItemBlock>
             {urlToImage && (
@@ -51,7 +51,10 @@ const NewsItem = ({ article }) => {
                     </a>
                 </h2>
                 <p>{description}</p>
+                <p rel="noopener noreferrer"> {author} </p>
             </div>
+
+
         </NewsItemBlock>
     );
 };

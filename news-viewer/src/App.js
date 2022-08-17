@@ -4,7 +4,7 @@ import NewsList from './components/NewsList';
 import Categories from './components/Categories';
 
 const App = () => {
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState('all'); // 기존에 useState로 관리 
   const onSelect = useCallback(category => setCategory(category), []);
 
   return(

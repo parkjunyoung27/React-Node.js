@@ -2,14 +2,21 @@ const Koa = require('koa');
 
 const app = new Koa();
 
-app.use((ctx, next) => {
+app.use(async (ctx, next) => {
     console.log(ctx.url);
     console.log(1);
-    next();
+    if(ctx.query.authorized !== '1'){
+        ctx.status = 401;
+        return;
+    }
+    await next();
+     // next().then(()=>{
+        console.log('END');
+     // });
 });
 
 app.use((ctx, next) => {
-    console.log(ctx.url);
+    // console.log(ctx.url);
     console.log(2);
     next();
 });

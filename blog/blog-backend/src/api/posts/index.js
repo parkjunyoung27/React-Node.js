@@ -14,5 +14,5 @@ posts.post('/', printInfo);
 posts.get('/:id', printInfo);
 posts.delete('/:id', printInfo);
 posts.put('/:id', printInfo);
-posts.path('/:id', printInfo);
+posts.patch('/:id', printInfo);
 module.exports = posts;

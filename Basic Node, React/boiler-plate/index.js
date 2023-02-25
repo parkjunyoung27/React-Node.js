@@ -6,9 +6,15 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://jyp:1234qwer!@boilerplate.ynbvpya.mongodb.net/?retryWrites=true&w=majority').then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err))
 
+
+
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+// 회원가입 위한 Route 만들기 
+app.post('/register', (req, res) =>{res.send('')})
 
 // app이 5000에 listen 하면 메세지가 나옴
 app.listen(port, () => { 

@@ -2,9 +2,7 @@ const express = require('express') //package.json 에 있는 express 모듈
 const app = express()
 const port = 5000
 const bodyParser = require('body-parser');
-
 const config = require("./config/key");
-
 const { User } = require("./models/User");
 
 //aplication/x-www-form-urlencoded\

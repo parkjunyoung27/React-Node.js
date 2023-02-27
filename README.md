@@ -7,4 +7,4 @@ React, Node.js 스터디 기록
             npm install nodemon --save-dev
             package.json에 시작 옵션 추가
 
-        
+- 중요 Key 값들은 config 폴더 안에 파일을 생성하여 따로 분리하기 

@@ -2,6 +2,9 @@ const express = require('express') //package.json 에 있는 express 모듈
 const app = express()
 const port = 5000
 const bodyParser = require('body-parser');
+
+const config = require("./config/key");
+
 const { User } = require("./models/User");
 
 //aplication/x-www-form-urlencoded\
@@ -11,7 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://jyp:1234qwer!@boilerplate.ynbvpya.mongodb.net/?retryWrites=true&w=majority').then(() => console.log('MongoDB Connected...'))
+mongoose.set("strictQuery", true);
+mongoose.connect(config.mongoURI).then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err))
 
 

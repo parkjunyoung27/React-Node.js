@@ -34,11 +34,10 @@ const userSchema = mongoose.Schema({
 })
 
 // save 실행되기 전에 하는 작업 설정
-userSchema.pre('save',function(){
-    
+userSchema.pre('save',function(next){
     var user = this; // userShema를 가리킴
 
-    if(user.isModifed('password')){
+    if(user.isModified('password')){
         // 비밀번호를 암호화 시킨다.
         bcrypt.genSalt(saltRounds,function(err, salt){
             if(err) return next(err)

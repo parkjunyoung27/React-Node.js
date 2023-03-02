@@ -11,3 +11,9 @@ React, Node.js 스터디 기록
 
 - npm install bcrypt --save  암호화 패키지 다운로드 
 - salt를 이용해서 비밀번호를 암호화 
+
+- Token 생성하는 라이브러리 설치
+- npm install jsonwebtoken --save
+
+- cookie parser 라이브러리 설치
+- npm install cookie-parser --save 

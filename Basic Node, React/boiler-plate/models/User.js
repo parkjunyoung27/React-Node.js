@@ -48,8 +48,21 @@ userSchema.pre('save',function(next){
                 next() // 다음으로 넘어간다
             })
         })
+    }else{
+        next()
     }
 })
+
+userSchema.methods.comparePassword = function(plainPawword, cb){
+
+    //plainPassword 1234567 암호화된 비밀번호 
+    bcrypt.compare(plainPawword, this.plainPawword, function(err, isMatch){
+        if(err) return cb(err),
+            cb(null, isMatch)
+    })
+
+
+}
 
 // model의 이름과 스키마 넣어주기 
 const User = mongoose.model('User', userSchema)

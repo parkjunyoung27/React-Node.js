@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const config = require("./config/key");
 const cookieParser = require('cookie-parser');
 const { User } = require("./models/User");
+const { auth } = requre("./middleware/auth")
 
 //aplication/x-www-form-urlencoded\
 app.use(bodyParser.urlencoded({extended: true}))
@@ -18,7 +19,6 @@ mongoose.set("strictQuery", true);
 mongoose.connect(config.mongoURI).then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err))
 
-
 app.get('/', (req, res) => { res.send('Hello World! ~ 자동재시작!') })
 
 // 회원가입 위한 Route 만들기 
@@ -26,8 +26,6 @@ app.post('/api/users/register', (req, res) =>{
   // 회원 가입 할때 필요한 정보들을 client에서 가져오면
 
   // 그것들을 데이터 베이스에 넣어준다.
-
-  
   const user = new User(req.body)
 
   user.save((err, userInfo) => {
@@ -72,13 +70,22 @@ app.post('/api/users/login', (req,res) => {
   })
 })
 
-app.post('/api/users/auth', auth, (req,res) => {
-    
+// role 1 어드민   role 2 특정 부서 어드민
+// role 0 일반유저 role 0 이 아니면 관리자
+app.post('/api/users/auth', auth, (req,res) => { // auth함수 
 
+  // 여기까지 middleware로 왔다는거는 authentication이 True라는 말.
+  res.status(200).json({
+    _id: req.user._id,
+    isAdmin: req.user.role === 0 ? false : true,
+    isAuth: true,
+    email: req.user.email,
+    name: req.user.name,
+    lastname: req.lastname,
+    role: req.user.role,
+    image: req.user.image
+  })
 })
-
-
-
 
 // app이 5000에 listen 하면 메세지가 나옴
 app.listen(port, () => { console.log(`Example app listening on port ${port}`) })

@@ -22,7 +22,7 @@ mongoose.connect(config.mongoURI).then(() => console.log('MongoDB Connected...')
 app.get('/', (req, res) => { res.send('Hello World! ~ 자동재시작!') })
 
 // 회원가입 위한 Route 만들기 
-app.post('/register', (req, res) =>{ 
+app.post('/api/users/register', (req, res) =>{ 
   // 회원 가입 할때 필요한 정보들을 client에서 가져오면
 
   // 그것들을 데이터 베이스에 넣어준다.
@@ -38,7 +38,7 @@ app.post('/register', (req, res) =>{
   }) 
 })
 
-app.post('/login', (req,res) => {
+app.post('/api/users/login', (req,res) => {
 
   //요청된 이메일을 데이터베이스에 있는지 찾는다.
   User.findOne({ email: req.body.email}, (err, user) => {
@@ -72,9 +72,13 @@ app.post('/login', (req,res) => {
   })
 })
 
+app.post('/api/users/auth', auth, (req,res) => {
+    
+
+})
 
 
-  //비밀번호까지 같다면 토큰을 생성하기.
+
 
 // app이 5000에 listen 하면 메세지가 나옴
 app.listen(port, () => { console.log(`Example app listening on port ${port}`) })

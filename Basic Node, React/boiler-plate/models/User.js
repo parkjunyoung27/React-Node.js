@@ -81,9 +81,7 @@ userSchema.methods.generateToken = function(cb){
 
 userSchema.statics.findByToken = function(token, cb){ // token을 가져옴  
     var user = this;
-    
-    user._id + '' = token
-
+    // user._id + '' = token
     // 토큰을 decode 한다.
     jwt.verify(token, 'secretToken', function(err, decoded){
         //유저 아이디를 이용해서 유저를 찾은 다음에
@@ -91,16 +89,13 @@ userSchema.statics.findByToken = function(token, cb){ // token을 가져옴
 
         //findOne은 몽고DB에 있는 method
         user.findOne({"_id" : decoded, "token": token}, function(err, user){
-
             if(err) return cb(err);
             cb(null, user)
-            
         })
     })
-
-    jwt.verify(token, 'shhhhh', function(err, decoded) {
-        console.log(decoded.foo) // bar
-      });
+    // jwt.verify(token, 'shhhhh', function(err, decoded) {
+    //     console.log(decoded.foo) // bar
+    //   });
 }
 
 // model의 이름과 스키마 넣어주기 

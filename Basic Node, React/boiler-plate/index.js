@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const config = require("./config/key");
 const cookieParser = require('cookie-parser');
 const { User } = require("./models/User");
-const { auth } = requre("./middleware/auth")
+const { auth } = require("./middleware/auth")
 
 //aplication/x-www-form-urlencoded\
 app.use(bodyParser.urlencoded({extended: true}))
@@ -84,6 +84,18 @@ app.post('/api/users/auth', auth, (req,res) => { // auth함수
     lastname: req.lastname,
     role: req.user.role,
     image: req.user.image
+  })
+})
+
+app.get('/api/users/logout', auth, (req, res) => {
+  console.log('req.user', req.user)
+  User.findOneAndUpdate({_id: req.user._id},
+  {token: ""}
+  ,(err, user) => {
+    if(err) return res.json({ success: false, err});
+    return res.status(200).send({
+      success: true
+    })
   })
 })
 

@@ -1,0 +1,3 @@
+mongodb 
+id : jyp
+pwd : 1234qwer!

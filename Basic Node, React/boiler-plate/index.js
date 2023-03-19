@@ -87,6 +87,7 @@ app.post('/api/users/auth', auth, (req,res) => { // auth함수
   })
 })
 
+// 로그아웃 
 app.get('/api/users/logout', auth, (req, res) => {
   console.log('req.user', req.user)
   User.findOneAndUpdate({_id: req.user._id},

@@ -1,7 +1,8 @@
-# React-Node.js
+## React-Node.js
 
 React, Node.js 스터디 기록
 
+# Node.js
 - NODE MON : 소스를 변경할때 감지해서 자동으로 서버를 재시작해주는 tool
             (코드로 돌아와 재시작 할 필요 없음)
             npm install nodemon --save-dev
@@ -17,3 +18,10 @@ React, Node.js 스터디 기록
 
 - cookie parser 라이브러리 설치
 - npm install cookie-parser --save 
+
+# React
+- create-react-app Command 로 바로 시작할 수 있다. 
+(Babel과 Webpack 간편 설치 가능)
+
+- npx create-react-app . (리액트 앱 설치)
+

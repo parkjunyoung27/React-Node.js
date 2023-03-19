@@ -24,4 +24,8 @@ React, Node.js 스터디 기록
 (Babel과 Webpack 간편 설치 가능)
 
 - npx create-react-app . (리액트 앱 설치)
+- npx가 npm registry에서 create-react-app을 찾아서 다운로드 없이 실행 시켜준다.
+- Disk Space를 낭비하지 않을 수 있다.
+- 항상 최신 버전을 사용할 수 있다. 
+
 

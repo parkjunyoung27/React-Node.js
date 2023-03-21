@@ -28,4 +28,8 @@ React, Node.js 스터디 기록
 - Disk Space를 낭비하지 않을 수 있다.
 - 항상 최신 버전을 사용할 수 있다. 
 
+# AXIOS
+- React JS 부분에서 Request를 보내면 되는데
+  그때 사용할게 AXIOS jQeury를 사용할 때 AJAX라고 보면된다.
+- npm install axios --save
 

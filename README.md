@@ -38,3 +38,17 @@ React, Node.js 스터디 기록
 - 다른 port 끼리 데이터 교환할 때 설정 필요 
 - Proxy 사용하는 방법으로 해결 
 - npm install http-proxy-middleware --save 
+
+# Proxy
+- 아이피를 Proxy Server에서 임의로 바꿔 버릴 수 있다. 
+  인터넷에서는 접근하는 사람의 IP를 모르게 된다.
+- 보내는 데이터도 임의로 바꿀 수 있다.
+- 방화벽 기능, 웹 필터 기능, 캐쉬 데이터, 공유 데이터 제공
+- Proxy Server 사용 이유
+  1. 회사에서 직원들이나 집안에서 아이들 인터넷 사용 제어 
+  2. 캐쉬를 이용해 더 빠른 인터넷 이용 제공
+  3. 더 나은 보안 제공
+  4. 이용 제한된 사이트 접근 기능 
+
+# Server, Client 동시 실행 
+- npm install concurrently --save

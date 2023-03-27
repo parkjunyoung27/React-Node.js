@@ -33,3 +33,8 @@ React, Node.js 스터디 기록
   그때 사용할게 AXIOS jQeury를 사용할 때 AJAX라고 보면된다.
 - npm install axios --save
 
+# Cors 정책 
+- Cross-Origin Resource Sharing 보안을 위해서 필요
+- 다른 port 끼리 데이터 교환할 때 설정 필요 
+- Proxy 사용하는 방법으로 해결 
+- npm install http-proxy-middleware --save 

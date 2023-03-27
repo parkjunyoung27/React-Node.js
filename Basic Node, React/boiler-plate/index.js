@@ -1,6 +1,5 @@
 const express = require('express') //package.json 에 있는 express 모듈
 const app = express()
-const port = 5000
 const bodyParser = require('body-parser');
 const config = require("./server/config/key");
 const cookieParser = require('cookie-parser');
@@ -22,10 +21,10 @@ mongoose.connect(config.mongoURI).then(() => console.log('MongoDB Connected...')
 app.get('/', (req, res) => { res.send('Hello World! ~ 자동재시작!') })
 
 // client  호출 받기
-app.get('/api/hello',(req,res) => {
-  //받은 건 없으니 req는 쓰지 않음
+app.get('/api/hello', (req,res) => 
+  //받은 건 없으니 req 는 쓰지 않음
   res.send("안녕하세요 ~ ") //응답 값 보내기
-})
+)
 
 // 회원가입 위한 Route 만들기 
 app.post('/api/users/register', (req, res) =>{ 
@@ -105,6 +104,8 @@ app.get('/api/users/logout', auth, (req, res) => {
     })
   })
 })
+
+const port = 5000
 
 // app이 5000에 listen 하면 메세지가 나옴
 app.listen(port, () => { console.log(`Example app listening on port ${port}`) })

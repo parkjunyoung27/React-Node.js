@@ -56,3 +56,7 @@ React, Node.js 스터디 기록
 # CSS Framework
 - Antd 프레임워크 추천
 - https://ant.design/docs/react/introduce 
+
+# Redux
+- 상태 관리 라이브러리 
+- Redux는 State를 관리하는 것

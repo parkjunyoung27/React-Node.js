@@ -78,7 +78,6 @@ app.post('/api/users/login', (req,res) => {
 // role 1 어드민   role 2 특정 부서 어드민
 // role 0 일반유저 role 0 이 아니면 관리자
 app.post('/api/users/auth', auth, (req,res) => { // auth함수 
-
   // 여기까지 middleware로 왔다는거는 authentication이 True라는 말.
   res.status(200).json({
     _id: req.user._id,

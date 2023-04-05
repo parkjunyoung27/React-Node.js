@@ -37,4 +37,4 @@ function LandingPage(props) {
   )
 }
 
-export default LandingPage 
+export default LandingPage

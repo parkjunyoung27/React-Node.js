@@ -63,4 +63,3 @@ React, Node.js 스터디 기록
 - npm install redux react-redux redux-promise redux-thunk --save
 - redux-thunk, redux-promise 가 있어야 store에 객체로 전달 
   1. 리덕스를 더 잘사용할 수 있게 하는 미들웨어
-- 

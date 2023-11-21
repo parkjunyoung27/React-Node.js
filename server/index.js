@@ -1,6 +1,5 @@
 const express = require('express') // express 호출
 const app = express() // express 서버 실행
-const port = 5000 // 서버 포트 5000
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const config = require('./config/key');
@@ -16,6 +15,12 @@ mongoose.connect(config.mongoURI, {useNewUrlParser: true, useUnifiedTopology: tr
  .catch(err => console.log(err))
 
 app.get('/', (req,res) => res.send('Hello World!!!')) // 루트 디렉토리오면 메세지 출력되게
+
+app.get('/api/hello', (req,res) => {
+
+    res.send("안녕하세요~")
+    
+})
 
 app.post('/api/users/register', async (req, res) =>{
     //회원 가입할 때 필요한 정보들을 client에서 가져오면 그것들을 데이터베이스에 넣어준다.
@@ -95,5 +100,7 @@ app.get('/api/users/logout', auth, (req, res) => {
         })
 })
 
+
 // 5000번 포트에서 HTTP 서버실행
+const port = 5000 // 서버 포트 5000
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
